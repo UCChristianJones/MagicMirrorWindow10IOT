@@ -64,17 +64,19 @@ namespace MagicMirror
 
         async void GetWeather()
         {
+            CHANGE ME
             WeatherNet.ClientSettings.SetApiKey("");
-            var current = await WeatherNet.Clients.CurrentWeather.GetByCityIdAsync(2638036,"EN","metric");
+            var city = 0;
+
+
+            var current = await WeatherNet.Clients.CurrentWeather.GetByCityIdAsync(city, "EN","metric");
 
 
 
-            var week = await WeatherNet.Clients.FiveDaysForecast.GetByCityIdAsync(2638036);
+            var week = await WeatherNet.Clients.FiveDaysForecast.GetByCityIdAsync(city);
 
 
             CurrentWeatherCC.ContentTemplate = GetWeatherIcon(current.Item.Icon);
-
-      
             TemperatureTB.Text = current.Item.Temp.ToString();
         }
 
