@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="MagicMirror.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MagicMirror"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="Black">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Primary.icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="30 30 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:ConnectionId='4' x:Name="TimeTB" FontSize="90" FontWeight="Bold" Foreground="White" Grid.Row="0" VerticalAlignment="Top" />
+            <TextBlock x:ConnectionId='5' x:Name="DateTB" FontSize="40" Foreground="White"  Grid.Row="1" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid Margin="0 20 50 0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:ConnectionId='1' x:Name="TemperatureTB" Grid.Column="0" Text="1" Foreground="White" FontSize="90" VerticalAlignment="Center"/>
+            <TextBlock Text="ᵒC" Grid.Column="1" Foreground="White" FontSize="50" Margin="2 0 40 0" VerticalAlignment="Center"/>
+            <Viewbox x:ConnectionId='2' Width="256" Height="256" Stretch="Uniform" HorizontalAlignment="Right" Grid.Column="2" x:Name="CurrentWeatherVB" >
+                <ContentPresenter x:ConnectionId='3' ContentTemplate="{StaticResource IconClearSky}" Margin="0" x:Name="CurrentWeatherCC"/>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Page>
+
